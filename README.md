@@ -1,5 +1,7 @@
 # 🀄 MandaRim
 
+[![CI](https://github.com/LauanMO/MandaRim/actions/workflows/ci.yml/badge.svg)](https://github.com/LauanMO/MandaRim/actions/workflows/ci.yml)
+
 Plataforma de aprendizado de **Mandarim** construída como projeto de **Técnicas de
 Integração de Sistemas**. Composta por **3 sistemas integrados** — frontend, backend e
 um serviço de IA — que se comunicam via REST.
