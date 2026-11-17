@@ -2,6 +2,13 @@
 
 [![CI](https://github.com/LauanMO/MandaRim/actions/workflows/ci.yml/badge.svg)](https://github.com/LauanMO/MandaRim/actions/workflows/ci.yml)
 
+**Demo:** [mandarim-seven.vercel.app](https://mandarim-seven.vercel.app)
+
+<p align="center">
+  <img src="screenshots/login.png" width="49%" alt="Tela de entrada do MandaRim" />
+  <img src="screenshots/flashcards.png" width="49%" alt="Flashcards do HSK 1 no MandaRim" />
+</p>
+
 Plataforma de aprendizado de **Mandarim** construída como projeto de **Técnicas de
 Integração de Sistemas**. Composta por **3 sistemas integrados** — frontend, backend e
 um serviço de IA — que se comunicam via REST.
