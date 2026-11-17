@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import rateLimit from 'express-rate-limit';
 
 import { config } from './config.js';
 import authRoutes from './routes/auth.js';
@@ -10,6 +11,9 @@ import exerciseRoutes from './routes/exercises.js';
 
 export function createApp() {
   const app = express();
+  // Na Render a API fica atrás de um proxy: sem isto, o IP de todo mundo seria
+  // o do proxy e todos os usuários dividiriam o mesmo limite de requisições.
+  app.set('trust proxy', 1);
 
   app.use(cors());
   app.use(express.json());
@@ -23,6 +27,15 @@ export function createApp() {
       time: new Date().toISOString(),
       // Diagnóstico: mostra se a URL do Serviço de IA chegou ao backend.
       iaService: config.iaServiceUrl || null,
+    })
+  );
+
+  // Limite por IP no resto da API (o health check da Render fica de fora).
+  app.use(
+    rateLimit({
+      windowMs: 60 * 1000,
+      limit: 120,
+      message: { error: 'Muitas requisições. Tente de novo em instantes.' },
     })
   );
 
